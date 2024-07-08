@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<button class="btn btn-sm btn-primary m-2 " id="btnadd">Add Employee</button>
+
+<table class="table table-bordered">
+   <thead>
+       <tr class="text-center">
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Salary</th>
+            <th>Action</th>
+       </tr>
+   </thead>
+   <tbody class="text-center" id="table_data">
+
+   </tbody>
+</table>
+<div>
+    <input type="hidden" id="urlempdata" value="@Url.Action("EmployeeList","Home")"/>
+</div>
+
+<div class="modal fade modal" id="employeemodel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="text-info modal-title" id="employeeheading">Add Employee</h1>
+                <button class="close text-danger" data-bs-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-check" id="empid">
+                        <label>Id</label>
+                        <input type="text"  id="EmployeeId" class="form-control" disabled="disabled" />
+                    </div>
+                    <div class="form-check">
+                        <label>Name</label>
+                        <input type="text" placeholder="Enter Name" id="Name" class="form-control" autocomplete="off" />
+                    </div>
+                    <div class="form-check">
+                        <label>City</label>
+                        <input type="text" placeholder="Enter City" id="City" class="form-control" autocomplete="off" />
+                    </div>
+                    <div class="form-check">
+                        <label>State</label>
+                        <input type="text" placeholder="Enter State" id="State" class="form-control" autocomplete="off" />
+                    </div>
+                    <div class="form-check">
+                        <label>Salary</label>
+                        <input type="text" placeholder="Enter Salary" id="Salary" class="form-control" autocomplete="off" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="Addemployee()" id="addemployee">Save</button>
+                <button class="btn btn-warning" onclick="UpdateEmployee()" style="display:none" id="updateemployee">Update</button>
+                <button class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/custom.js"></script>
